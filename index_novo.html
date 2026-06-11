@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mariana ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b3d 100%);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    min-height: 100vh;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #ccc;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.botoes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button {
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(255, 105, 180, 0.8);
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover:not(:disabled) {
+    background: rgba(255, 20, 147, 1);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#mensagem {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    animation: fadeMessage 0.5s ease-in;
+    min-height: 50px;
+}
+
+@keyframes fadeMessage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#euteamo {
+    font-size: 20px;
+    color: #ff1493;
+    margin-top: 40px;
+    font-weight: bold;
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+#coracaoSecreto {
+    position: fixed;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0.3;
+    right: 20px;
+    bottom: 100px;
+    transition: all 0.3s ease;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+#coracaoSecreto:hover {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.coracao {
+    position: fixed;
+    font-size: 30px;
+    pointer-events: none;
+    animation: cair 3s linear forwards;
+}
+
+@keyframes cair {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.container-buque {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+    perspective: 1000px;
+    animation: girar 8s infinite linear;
+}
+
+@keyframes girar {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.tulipa3d {
+    position: absolute;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalBg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #2d1b3d 0%, #1a0a2e 100%);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 101;
+    color: white;
+    width: 90%;
+    max-width: 400px;
+    animation: popIn 0.3s ease-out;
+}
+
+#modalBgMusicas {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+/* Carrossel de Fotos */
+#modalBgCarrossel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+}
+
+#modalCarrossel {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #2d1b3d 0%, #1a0a2e 100%);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 101;
+    color: white;
+    width: 90%;
+    max-width: 500px;
+    animation: popIn 0.3s ease-out;
+}
+
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.carrossel-img {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.carrossel-desc {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-style: italic;
+}
+
+.carrossel-controles {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.carrossel-btn {
+    background: rgba(255, 105, 180, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.carrossel-btn:hover {
+    background: rgba(255, 20, 147, 1);
+}
+
+.carrossel-contador {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+#modalMusicas {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #2d1b3d 0%, #1a0a2e 100%);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 101;
+    color: white;
+    width: 90%;
+    max-width: 500px;
+    animation: popIn 0.3s ease-out;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+@keyframes popIn {
+    from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.flor {
+    position: fixed;
+    font-size: 20px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: flutuar 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+.musicas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+    .musicas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 500px;
+    }
+}
+
+.musica-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+    display: block;
+    border: 2px solid rgba(255, 105, 180, 0.5);
+}
+
+.musica-card:hover {
+    background: rgba(255, 105, 180, 0.3);
+    transform: scale(1.05);
+    border-color: rgba(255, 105, 180, 1);
+}
+
+.musica-icone {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.musica-nome {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.musica-artista {
+    font-size: 12px;
+    color: #ccc;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>❤️ Para a garota mais incrível do mundo ❤️</h1>
+<p>Uma coisinha feita especialmente para você ✨</p>
+
+<div class="botoes-container">
+<button onclick="carta()" id="btnCarta">💌 Ler Carta</button>
+<button onclick="triste()" id="btnTriste" disabled>🌧️ Abra quando estiver triste</button>
+<button onclick="motivo()" id="btnMotivo" disabled>✨ Motivos que eu gosto de você</button>
+<button onclick="saudade()" id="btnSaudade" disabled>🥺 Abra quando sentir saudade</button>
+<button onclick="tempo(138)" id="btnTempo" disabled>⏳ Nosso tempo juntos</button>
+<button onclick="buque()" id="btnBuque" disabled>🌷 Buquê de Tulipas</button>
+<button onclick="abrirModalMusicas()" id="btnMusicas" disabled>🎵 Músicas que me lembram você</button>
+<button onclick="abrirCarrossel()" id="btnFotos" disabled>📸 Fotos suas que me fez apaixonar</button>
+<button onclick="abrirModal()" id="btnSegredo" disabled>🖤 Segredo</button>
+<button onclick="minhaPrincesa()" id="btnPrincesa" disabled>👑 Quem é minha princesa?</button>
+</div>
+
+<div id="mensagem"></div>
+
+<div id="euteamo">Eu te amo ❤️</div>
+
+<div id="coracaoSecreto">💖</div>
+
+<!-- Modal -->
+<div id="modalBg" onclick="fecharModal()"></div>
+<div id="modal">
+    <h2>🖤 Meu Maior Segredo</h2>
+    <p id="textoModal"></p>
+    <button class="fecharModal" onclick="fecharModal()">Fechar</button>
+</div>
+
+<!-- Modal Carrossel -->
+<div id="modalBgCarrossel" onclick="fecharCarrossel()"></div>
+<div id="modalCarrossel">
+    <h2>📸 Você é linda demais</h2>
+    <div class="carrossel-container">
+        <img id="carrosselImg" src="foto1.jpg" alt="Foto" class="carrossel-img">
+        <p class="carrossel-desc" id="carrosselDesc">voce tava linda nessa nenem,perfeita</p>
+        <div class="carrossel-controles">
+            <button class="carrossel-btn" onclick="fotoAnterior()">← Anterior</button>
+            <button class="carrossel-btn" onclick="proximaFoto()">Próxima →</button>
+        </div>
+        <div class="carrossel-contador">
+            <span id="fotoAtual">1</span> / <span id="totalFotos">4</span>
+        </div>
+    </div>
+    <button class="fecharModal" onclick="fecharCarrossel()">Fechar</button>
+</div>
+</div>
+
+<!-- Modal Músicas -->
+<div id="modalBgMusicas" onclick="fecharModalMusicas()"></div>
+
+<div id="modalMusicas">
+    <h2>🎵 Músicas que me lembram você</h2>
+
+    <div id="musicasGrid" class="musicas-grid"></div>
+
+    <br>
+
+    <button onclick="fecharModalMusicas()">
+        Fechar
+    </button>
+</div>
+
+<script>
+
+const motivos = [
+    "Seu jeito ❤️",
+    "Sua personalidade ❤️",
+    "Seu cabelo ❤️",
+    "Sua gentileza ❤️",
+    "Seu sorriso ❤️",
+    "Seu carinho ❤️",
+    "Você tem uma energia que me faz bem ❤️",
+    "Sua força ❤️",
+    "Como você consegue ser tão linda e doce ao mesmo tempo? ❤️",
+    "Você é meu motivo de sorrir ❤️",
+    "Seus olhos são lindos ❤️",
+    "Você é perfeita, até de corpo rs ❤️",
+    "Você torna os piores dias melhores ❤️"
+];
+
+function carta(){
+ document.getElementById("mensagem").innerHTML =
+document.getElementById("mensagem").innerHTML =
+"Oi neném ❤️<br><br>" +
+"Eu fiz essa página porque você é uma das pessoas mais importantes da minha vida. Talvez ela tenha alguns erros, talvez não esteja perfeita, mas foi feita com carinho e pensando em você.<br><br>" +
+"Cada botão aqui tem um pedacinho do que eu sinto, das coisas que eu gosto em você e de alguns pensamentos que queria te mostrar de um jeito diferente.<br><br>" +
+"Espero que isso te faça sorrir nem que seja por alguns minutinhos, porque você consegue fazer isso comigo todos os dias.<br><br>" +
+"Te amo, princesa ❤️";
+
+    document.getElementById("btnCarta").disabled = true;
+    document.getElementById("btnTriste").disabled = false;
+    document.getElementById("btnMotivo").disabled = false;
+    document.getElementById("btnSaudade").disabled = false;
+    document.getElementById("btnTempo").disabled = false;
+    document.getElementById("btnBuque").disabled = false;
+    document.getElementById("btnMusicas").disabled = false;
+    document.getElementById("btnFotos").disabled = false;
+    document.getElementById("btnSegredo").disabled = false;
+    document.getElementById("btnPrincesa").disabled = false;
+}
+
+function triste(){
+    document.getElementById("mensagem").innerHTML = "Você já passou por coisas que muita gente não aguentaria, e mesmo assim continua aqui, firme do seu jeito. Te admiro nenem ❤️";
+}
+
+function saudade(){
+    document.getElementById("mensagem").innerHTML = "Se você está com saudade, saiba que eu provavelmente também estou ❤️";
+}
+
+function tempo(dias){
+    document.getElementById("mensagem").innerHTML = "Ah " + dias + " dias que venho te amando ❤️";
+}
+
+function motivo(){
+    let sorteio = motivos[Math.floor(Math.random()*motivos.length)];
+    document.getElementById("mensagem").innerHTML = sorteio;
+    criarCoracoes();
+}
+
+function criarCoracoes(){
+    for(let i = 0; i < 15; i++){
+        setTimeout(() => {
+            const coracao = document.createElement("div");
+            coracao.innerHTML = "❤️";
+            coracao.className = "coracao";
+            coracao.style.left = Math.random() * 100 + "%";
+            coracao.style.top = "-50px";
+            document.body.appendChild(coracao);
+            
+            setTimeout(() => coracao.remove(), 3000);
+        }, i * 100);
+    }
+}
+
+function buque(){
+    let buqueHTML = "Um buquê de tulipas pra você ❤️<br><br>Cada uma representa um dia que você me faz feliz ❤️<div class='container-buque'>";
+    
+    for(let i = 0; i < 20; i++){
+        const angulo = (i / 20) * Math.PI * 2;
+        const raio = 80;
+        const x = Math.cos(angulo) * raio;
+        const y = Math.sin(angulo) * raio;
+        const z = Math.random() * 60;
+        
+        buqueHTML += `<div class='tulipa3d' style='transform: translateX(${x}px) translateY(${y}px) translateZ(${z}px); left: 75px; top: 50px;'>🌷</div>`;
+    }
+    
+    buqueHTML += "</div>";
+    document.getElementById("mensagem").innerHTML = buqueHTML;
+}
+
+function tocarSom(){
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 200;
+        oscillator.type = 'sine';
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.1);
+    } catch(e) {}
+}
+
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', tocarSom);
+});
+
+const frases = [
+    "Eu te amo ❤️",
+    "Te amo muito 💙",
+    "Você é meu tudo 🖤",
+    "Meu coração é seu ❤️",
+    "Te amarei sempre 💕",
+    "Você me faz feliz ❤️"
+];
+
+let indiceFrase = 0;
+
+setInterval(() => {
+    indiceFrase = (indiceFrase + 1) % frases.length;
+    document.getElementById("euteamo").innerHTML = frases[indiceFrase];
+}, 5000);
+
+function abrirModal(){
+    document.getElementById("modalBg").style.display = "block";
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("textoModal").innerHTML = "Meu maior segredo é que você é tudo que sempre quis. Você é minha razão de sorrir, meu tudo rs 🖤";
+    criarCoracoes();
+}
+
+function fecharModal(){
+    document.getElementById("modalBg").style.display = "none";
+    document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("coracaoSecreto").addEventListener("click", function(){
+    document.getElementById("mensagem").innerHTML = "ACHOUU KKK<br><br>TE AMO PRINCESA ❤️";
+    criarCoracoes();
+    tocarSom();
+});
+
+function criarFlores(){
+    for(let i = 0; i < 10; i++){
+        const flor = document.createElement("div");
+        flor.innerHTML = "🌹";
+        flor.className = "flor";
+        flor.style.left = Math.random() * 100 + "%";
+        flor.style.top = Math.random() * 100 + "%";
+        flor.style.animationDelay = (i * 0.4) + "s";
+        document.body.appendChild(flor);
+    }
+}
+
+window.addEventListener('load', criarFlores);
+
+const musicas = [
+    {
+        nome: "Don't Cry",
+        artista: "Guns N' Roses",
+        icone: "🎸",
+        link: "https://open.spotify.com/intl-pt/track/2N2yrmodOnVF10mKvItC9P"
+    },
+    {
+        nome: "Pretty Girls Make Graves",
+        artista: "The Smiths",
+        icone: "🖤",
+        link: "https://open.spotify.com/intl-pt/track/3wUMcPzXcmaeW8QxTdyXQO"
+    },
+    {
+        nome: "I Love You",
+        artista: "Fontaines D.C.",
+        icone: "💕",
+        link: "https://open.spotify.com/intl-pt/track/7b2caacNgQW74qGvNyVQo1"
+    },
+    {
+        nome: "A Little Piece of Heaven",
+        artista: "Avenged Sevenfold",
+        icone: "😈",
+        link: "https://open.spotify.com/intl-pt/track/1BLfQ6dPXmuDrFmbdfW7Jl"
+    },
+    {
+        nome: "Vermilion Pt. 2",
+        artista: "Slipknot",
+        icone: "🔴",
+        link: "https://open.spotify.com/intl-pt/track/0O7lENhqOySbsL743G7PqD"
+    },
+    {
+        nome: "Join Me In Death",
+        artista: "HIM",
+        icone: "🌙",
+        link: "https://open.spotify.com/intl-pt/track/089jl361OtZ6VpYvhgPiTS"
+    },
+    {
+        nome: "All I Need",
+        artista: "Radiohead",
+        icone: "🎵",
+        link: "https://open.spotify.com/intl-pt/track/5Qv2Nby1xTr9pQyjkrc94J"
+    },
+    {
+        nome: "Helena",
+        artista: "My Chemical Romance",
+        icone: "🖼️",
+        link: "https://open.spotify.com/intl-pt/track/5dTHtzHFPyi8TlTtzoz1J9"
+    },
+    {
+        nome: "And I Love Her",
+        artista: "Kurt Cobain",
+        icone: "💔",
+        link: "https://open.spotify.com/intl-pt/track/5cH8EVxJ8skgWRDXo3G5Cv"
+    }
+];
+
+function abrirModalMusicas(){
+    document.getElementById("modalBgMusicas").style.display = "block";
+    document.getElementById("modalMusicas").style.display = "block";
+    
+    let grid = document.getElementById("musicasGrid");
+    grid.innerHTML = "";
+    
+    musicas.forEach(musica => {
+        const card = document.createElement("a");
+        card.href = musica.link;
+        card.target = "_blank";
+        card.className = "musica-card";
+        card.innerHTML = `
+            <div class="musica-icone">${musica.icone}</div>
+            <div class="musica-nome">${musica.nome}</div>
+            <div class="musica-artista">${musica.artista}</div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function fecharModalMusicas(){
+    document.getElementById("modalBgMusicas").style.display = "none";
+    document.getElementById("modalMusicas").style.display = "none";
+}
+const fotos = [
+    {
+        imagem: "foto1.jpg",
+        descricao: "Você tava perfeita e linda nessa ❤️"
+    },
+    {
+        imagem: "foto2.jpg",
+        descricao: "nessa voce tava engraçada...exotica.. ❤️"
+    },
+    {
+        imagem: "foto3.jpg",
+        descricao: "essa é a minha favorita vc pitica e fofa ❤️"
+    },
+    {
+        imagem: "foto4.jpg",
+        descricao: "nessa nao tem nem oq falar pqp gostosa rs ❤️"
+    }
+];
+
+let fotoAtualIndex = 0;
+
+function abrirCarrossel() {
+    document.getElementById("modalBgCarrossel").style.display = "block";
+    document.getElementById("modalCarrossel").style.display = "block";
+    atualizarFoto();
+}
+
+function fecharCarrossel() {
+    document.getElementById("modalBgCarrossel").style.display = "none";
+    document.getElementById("modalCarrossel").style.display = "none";
+}
+
+function atualizarFoto() {
+    document.getElementById("carrosselImg").src = fotos[fotoAtualIndex].imagem;
+    document.getElementById("carrosselDesc").innerHTML = fotos[fotoAtualIndex].descricao;
+    document.getElementById("fotoAtual").innerHTML = fotoAtualIndex + 1;
+    document.getElementById("totalFotos").innerHTML = fotos.length;
+}
+
+function proximaFoto() {
+    fotoAtualIndex = (fotoAtualIndex + 1) % fotos.length;
+    atualizarFoto();
+}
+
+function fotoAnterior() {
+    fotoAtualIndex = (fotoAtualIndex - 1 + fotos.length) % fotos.length;
+    atualizarFoto();
+}
+function minhaPrincesa(){
+
+    document.getElementById("mensagem").innerHTML =
+    "👑 Quem é minha princesa?<br><br>" +
+    "<button onclick='respostaPrincesa()'>EUUUUUUU </button>";
+
+}
+
+function respostaPrincesa(){
+
+    document.getElementById("mensagem").innerHTML =
+    "ACERTOUUUU KKKKK ❤️👑<br><br>" +
+    "Você é minha princesa, minha garota favorita e garota mais linda desse mundo. ❤️🌷";
+
+    criarCoracoes();
+}
+</script>
+
+</body>
+</html>
