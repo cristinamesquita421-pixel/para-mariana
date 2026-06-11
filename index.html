@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mariana ❤️</title>
+
+<style>
+body{
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b3d 100%);
+    font-family:Arial;
+    text-align:center;
+    padding:20px;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+    animation: fadeIn 0.8s ease-in;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 50px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button{
+    padding:12px 20px;
+    margin:8px;
+    font-size:16px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    background: rgba(255, 105, 180, 0.8);
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 90%;
+    max-width: 250px;
+}
+
+@media (min-width: 768px) {
+    button {
+        font-size: 18px;
+        padding: 12px;
+        margin: 10px;
+        width: auto;
+    }
+}
+
+button:hover:not(:disabled) {
+    background: rgba(255, 20, 147, 1);
+    transform: scale(1.05);
+}
+
+button:active:not(:disabled) {
+    background: rgba(200, 10, 100, 1);
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+#mensagem{
+    margin-top:20px;
+    font-size:18px;
+    animation: fadeMessage 0.5s ease-in;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    #mensagem {
+        font-size: 20px;
+    }
+}
+
+@keyframes fadeMessage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de corações caindo */
+@keyframes cair {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.coracao {
+    position: fixed;
+    font-size: 30px;
+    pointer-events: none;
+    animation: cair 3s linear forwards;
+}
+
+/* Animação piscante para "Eu te amo" */
+@keyframes piscar {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+#euteamo {
+    font-size: 20px;
+    color: #ff1493;
+    margin-top: 30px;
+    font-weight: bold;
+    animation: piscar 1s infinite;
+}
+
+@media (min-width: 768px) {
+    #euteamo {
+        font-size: 24px;
+    }
+}
+
+/* Buquê 3D */
+#buque3d {
+    perspective: 1000px;
+    margin: 30px auto;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.tulipa3d {
+    position: absolute;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes girar {
+    from {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    to {
+        transform: rotateY(360deg) rotateX(10deg);
+    }
+}
+
+.container-buque {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+    perspective: 1000px;
+    animation: girar 8s infinite linear;
+}
+
+#coracaoSecreto {
+    position: fixed;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    z-index: 10;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+#coracaoSecreto:hover {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+/* Modal */
+#modalBg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    animation: fadeIn 0.3s ease-in;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #2d1b3d 0%, #1a0a2e 100%);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 101;
+    color: white;
+    min-width: 85vw;
+    max-width: 400px;
+    animation: popIn 0.3s ease-out;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+    #modal {
+        min-width: 300px;
+        padding: 40px;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.fecharModal {
+    background: rgba(255, 20, 147, 1);
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+/* Flores góticas flutuantes */
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.flor {
+    position: fixed;
+    font-size: 20px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: flutuar 4s ease-in-out infinite;
+    z-index: -1;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>❤️  Para a garota mais incrível do mundo ❤️</h1>
+<p style="color: #ccc; font-size: 16px;">Uma coisinha feita especialmente para você ✨<p></p>
+
+<button onclick="carta()" id="btnCarta">💌 Ler Carta</button>
+<button onclick="triste()" id="btnTriste" disabled style="opacity: 0.5;">🌧️ Abra quando estiver triste</button>
+<button onclick="motivo()" id="btnMotivo" disabled style="opacity: 0.5;">✨ Motivos que eu gosto de você</button>
+<button onclick="saudade()" id="btnSaudade" disabled style="opacity: 0.5;">🥺 Abra quando sentir saudade</button>
+<button onclick="tempo(138)" id="btnTempo" disabled style="opacity: 0.5;">⏳ Nosso tempo juntos</button>
+<button onclick="buque()" id="btnBuque" disabled style="opacity: 0.5;">🌷 Buquê de Tulipas</button>
+<button onclick="abrirModal()" id="btnSegredo" disabled style="opacity: 0.5;">🖤 Segredo</button>
+
+<div id="mensagem"></div>
+
+<div id="euteamo">Eu te amo ❤️</div>
+
+<div id="coracaoSecreto">💖</div>
+
+<!-- Modal -->
+<div id="modalBg" onclick="fecharModal()"></div>
+<div id="modal">
+    <h2>🖤 Meu Maior Segredo</h2>
+    <p id="textoModal"></p>
+    <button class="fecharModal" onclick="fecharModal()">Fechar</button>
+</div>
+
+<script>
+
+function criarFlores(){
+    // Cria flores flutuantes no fundo
+    for(let i = 0; i < 10; i++){
+        const flor = document.createElement("div");
+        flor.innerHTML = "🌹";
+        flor.className = "flor";
+        flor.style.left = Math.random() * 100 + "%";
+        flor.style.top = Math.random() * 100 + "%";
+        flor.style.animationDelay = (i * 0.4) + "s";
+        document.body.appendChild(flor);
+    }
+}
+
+// Chama ao carregar a página
+window.addEventListener('load', criarFlores);
+
+function coracaoSecreto(){
+    document.getElementById("mensagem").innerHTML =
+    "ACHOUU KKK<br><br>TE AMO PRINCESA ❤️";
+    criarCoracoes();
+}
+
+document.getElementById("coracaoSecreto").addEventListener("click", coracaoSecreto);
+
+function tocarSom(){
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 200;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.1);
+}
+
+// Adiciona som a todos os botões
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', tocarSom);
+});
+
+// Frases variadas para "Eu te amo"
+const frases = [
+    "Eu te amo ❤️",
+    "Te amo muito 💙",
+    "Você é meu tudo 🖤",
+    "Meu coração é seu ❤️",
+    "Te amarei sempre 💕",
+    "Você me faz feliz ❤️"
+];
+
+let indiceFrase = 0;
+
+// Muda a frase a cada 5 segundos
+setInterval(() => {
+    indiceFrase = (indiceFrase + 1) % frases.length;
+    document.getElementById("euteamo").innerHTML = frases[indiceFrase];
+}, 5000);
+
+function abrirModal(){
+    document.getElementById("modalBg").style.display = "block";
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("textoModal").innerHTML = 
+    "Meu maior segredo é que você é tudo que sempre quis. Você é minha razão de sorrir, meu tudo rs 🖤";
+    criarCoracoes();
+}
+
+function fecharModal(){
+    document.getElementById("modalBg").style.display = "none";
+    document.getElementById("modal").style.display = "none";
+}
+
+function buque(){
+    let buqueHTML = "Um buquê de tulipas pra você ❤️<br><br>Cada uma representa um dia que você me faz feliz ❤️" +
+    "<div class='container-buque'>";
+    
+    // Cria 20 tulipas em posições diferentes formando um buquê
+    for(let i = 0; i < 20; i++){
+        const angulo = (i / 20) * Math.PI * 2;
+        const raio = 80;
+        const x = Math.cos(angulo) * raio;
+        const y = Math.sin(angulo) * raio;
+        const z = Math.random() * 60;
+        
+        buqueHTML += `<div class='tulipa3d' style='transform: translateX(${x}px) translateY(${y}px) translateZ(${z}px); left: 75px; top: 50px;'>🌷</div>`;
+    }
+    
+    buqueHTML += "</div>";
+    document.getElementById("mensagem").innerHTML = buqueHTML;
+}
+
+function criarTulipas(){
+}
+
+function carta(){
+    document.getElementById("mensagem").innerHTML =
+    "Oi amor ❤️<br><br>Fiz essa página porque você é muito especial pra mim.";
+    
+    // Desabilita o botão da carta e ativa os outros
+    document.getElementById("btnCarta").disabled = true;
+    document.getElementById("btnCarta").style.opacity = "0.5";
+    document.getElementById("btnTriste").disabled = false;
+    document.getElementById("btnTriste").style.opacity = "1";
+    document.getElementById("btnMotivo").disabled = false;
+    document.getElementById("btnMotivo").style.opacity = "1";
+    document.getElementById("btnSaudade").disabled = false;
+    document.getElementById("btnSaudade").style.opacity = "1";
+    document.getElementById("btnTempo").disabled = false;
+    document.getElementById("btnTempo").style.opacity = "1";
+    document.getElementById("btnBuque").disabled = false;
+    document.getElementById("btnBuque").style.opacity = "1";
+    document.getElementById("btnSegredo").disabled = false;
+    document.getElementById("btnSegredo").style.opacity = "1";
+}
+
+function triste(){
+    document.getElementById("mensagem").innerHTML =
+    "Você já passou por coisas que muita gente não aguentaria, e mesmo assim continua aqui, firme do seu jeito. Te admiro nenem ❤️";
+}
+
+function saudade(){
+    document.getElementById("mensagem").innerHTML =
+    "Se você está com saudade, saiba que eu provavelmente também estou ❤️";
+}
+
+function tempo(dias){
+    document.getElementById("mensagem").innerHTML =
+    "Ah " + dias + " dias que venho te amando ❤️";
+}
+
+const motivos = [
+    "Seu jeito ❤️",
+    "Sua personalidade ❤️",
+    "Seu cabelo ❤️",
+    "Sua gentileza ❤️",
+    "Seu sorriso ❤️",
+    "Seu carinho ❤️",
+    "Você tem uma energia que me faz bem ❤️",
+    "Sua força ❤️",
+    "Como você consegue ser tão linda e doce ao mesmo tempo? ❤️",
+    "Você é meu motivo de sorrir ❤️",
+    "Seus olhos são lindos ❤️",
+    "Você é perfeita, até de corpo rs ❤️",
+    "Você torna os piores dias melhores ❤️"
+];
+
+function motivo(){
+    let sorteio =
+    motivos[Math.floor(Math.random()*motivos.length)];
+
+    document.getElementById("mensagem").innerHTML = sorteio;
+    
+    // Dispara corações caindo
+    criarCoracoes();
+}
+
+function criarCoracoes(){
+    for(let i = 0; i < 15; i++){
+        setTimeout(() => {
+            const coracao = document.createElement("div");
+            coracao.innerHTML = "❤️";
+            coracao.className = "coracao";
+            coracao.style.left = Math.random() * 100 + "%";
+            coracao.style.top = "-50px";
+            document.body.appendChild(coracao);
+            
+            // Remove o elemento depois da animação
+            setTimeout(() => coracao.remove(), 3000);
+        }, i * 100);
+    }
+}
+
+</script>
+
+</body>
+</html>

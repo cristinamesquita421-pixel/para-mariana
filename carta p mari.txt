@@ -1,0 +1,9 @@
+import tkinter as tk
+
+janela = tk.Tk()
+janela.title("Cartinha 💙")
+
+texto = tk.Label(janela, text="Oi 💙 isso aqui é pra você")
+texto.pack(pady=20)
+
+janela.mainloop()

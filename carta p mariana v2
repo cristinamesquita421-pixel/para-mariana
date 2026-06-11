@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Para Mariana ❤️</title>
+
+<style>
+body{
+    background:#ffd6e0;
+    font-family:Arial;
+    text-align:center;
+    padding:50px;
+}
+
+button{
+    padding:12px;
+    margin:10px;
+    font-size:18px;
+}
+
+#mensagem{
+    margin-top:20px;
+    font-size:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>❤️ Carta para Mariana ❤️</h1>
+
+<button onclick="carta()">💌 Ler Carta</button>
+<button onclick="triste()">🌧️ Abra quando estiver triste</button>
+<button onclick="motivo()">✨ Motivos que eu gosto de você</button>
+
+<div id="mensagem"></div>
+
+<script>
+
+function carta(){
+    document.getElementById("mensagem").innerHTML =
+    "Oi amor ❤️<br><br>Fiz essa página porque você é muito especial pra mim.";
+}
+
+function triste(){
+    document.getElementById("mensagem").innerHTML =
+    "Mesmo nos dias ruins você continua incrível ❤️";
+}
+
+const motivos = [
+    "Seu jeito ❤️",
+    "Sua personalidade ❤️",
+    "Seu cabelo ❤️",
+    "Sua gentileza ❤️",
+    "Seu sorriso ❤️",
+    "Seu carinho ❤️"
+];
+
+function motivo(){
+    let sorteio =
+    motivos[Math.floor(Math.random()*motivos.length)];
+
+    document.getElementById("mensagem").innerHTML = sorteio;
+}
+
+</script>
+
+</body>
+</html>
